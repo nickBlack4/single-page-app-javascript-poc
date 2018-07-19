@@ -49,6 +49,16 @@ const writingDesk = {
 	description: "This antique desk blah blah"
 }
 
+const saveDatabase = function (databaseObject) {
+    // convert the object into a string.
+    const stringifiedDatabase = JSON.stringify(databaseObject);
+    
+    // create a key in local storage, and store the string version
+    // of your inventory database as the value
+  
+    localStorage.setItem(localStorageKey, stringifiedDatabase);
+}
+
 // Add the data to the appropriate tables
 HomeInventoryDatabase.crafts.push(vintageInkwell);
 HomeInventoryDatabase.furniture.push(writingDesk);
