@@ -11,7 +11,7 @@
 // 		"photo_url": "blah"// attach urls here and populate slider?
 // 	},
 // 	"aliases": ["Nic", "Nick", "Nicholas", "Bossman"],
-// 	"residences": ["USA", "Britain", "France"]
+// 	"residence": ["USA", "Britain", "France"]
 // }
 
 /*
@@ -28,27 +28,30 @@ const HomeInventoryDatabase = {};
 
 // Init all of the tables (i.e. arrays) that you want to use in DB
 
-HomeInventoryDatabase.furniture = [];
-HomeInventoryDatabase.crafts = [];
-HomeInventoryDatabase.electronics = [];
+HomeInventoryDatabase.collaborators = ["mario", "luigi"];
+// filled (pushed) below with portraitInfo object
+HomeInventoryDatabase.portrait = [];
+HomeInventoryDatabase.aliases = ["Nic", "Nick", "Nicholas", "Bossman"];
+HomeInventoryDatabase.residence = ["USA"];
 
 // Create data that will be inserted into objects
 
-const vintageInkwell = {
-	
-	name: "Vintage Ink Well",
-	location: "Writing desk",
-	description: "I enjoy this inkwell because it belonged to pop"
+// I used an object here since there were two types of things I wanted represented
+// i.e. a name, and a photo.  I want to grab the url and use it to create
+// an image object to display an image to the dom.  The case being that then
+// we can populate any images we want to the dom as long as we have the url
+const portraitInfo = {
+	name: "Nicholas Cage",
+	photo: "photoURLhereToCreateImageObjectAndSrcFrom",
 }
 
-const writingDesk = {
-	
-	
-	name: "Shaker writing desk",
-	location: "Bedroom",
-	description: "This antique desk blah blah"
-}
+// Add the data to the appropriate tables
+HomeInventoryDatabase.portrait.push(portraitInfo);
+HomeInventoryDatabase.furniture.push(writingDesk);
 
+
+
+// I needed to put saveDatabase in here so it had access to localStorage variable
 const saveDatabase = function (databaseObject) {
     // convert the object into a string.
     const stringifiedDatabase = JSON.stringify(databaseObject);
@@ -59,9 +62,6 @@ const saveDatabase = function (databaseObject) {
     localStorage.setItem(localStorageKey, stringifiedDatabase);
 }
 
-// Add the data to the appropriate tables
-HomeInventoryDatabase.crafts.push(vintageInkwell);
-HomeInventoryDatabase.furniture.push(writingDesk);
 
 // Persist the database to localStorage
 saveDatabase(HomeInventoryDatabase, "HomeInventory");
