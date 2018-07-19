@@ -53,32 +53,84 @@ const myData = loadDatabase("nickStorage");
 //         let currentItem = myData[key][i];
 //         console.log(currentItem.name);
 //     }
-   
 // }
 
 // write myData info to content window
 
 // get content window and save to var
-const myWindow = getContentWindow();
 
-for (let key in myData) {
-    for (let i=0; i < myData[key].length; i++) {
-        let currentItem = myData[key][i];
-        console.log(currentItem);
-        myWindow.innerHTML += currentItem;
-        
-        /*
-        *   need to create DOM elements and attach
-        * respective information to them before writing to 
-        * DOM.
-        */
+const container = document.getElementById("contentWindow");
 
-    }
-   
+// define a variable for each one of those keys
+// four for loops because you want to do something different
+// with each array within the main object
+
+// collaborators, portrait, aliases, residence
+let paragraph = document.createElement("p");
+paragraph.innerHTML = "Collaborators: <br/>";
+container.appendChild(paragraph);
+
+for (let i=0; i < myData.collaborators.length; i++) {
+    let currentItem = myData.collaborators[i];
+    paragraph.innerHTML += currentItem + "<br/>";
+    // container.appendChild(paragraph);
 }
-// update DOM within proper div
-// myWindow.innerHTML += currentItem;
 
-// clearContentWindow();
+let portraitPara = document.createElement("p");
+portraitPara.innerHTML = "Portrait info: <br/>";
+container.appendChild(portraitPara);
+for (let i=0; i < myData.portrait.length; i++) {
+    for (var key in myData.portrait[i])
+    currentItem = myData.portrait[i].key;
+    portraitPara.innerHTML += currentItem + "<br/>";
+}
+
+let aliasParagraph = document.createElement("p");
+    aliasParagraph.innerHTML = "Alias info: <br/>";
+    container.appendChild(aliasParagraph);
+for (let i=0; i < myData.aliases.length; i++) {
+    console.log(myData.aliases[i]);
+    let currentItem = myData.aliases[i];
+    aliasParagraph.innerHTML += currentItem + "<br/>";
+    
+}
+
+let residenceParagraph = document.createElement("p");
+    residenceParagraph.innerHTML = "Residence " + "<br/>";
+    container.appendChild(residenceParagraph);
+for (let i=0; i < myData.residence.length; i++) {
+    console.log(myData.residence[i]);
+    let currentItem = myData.residence[i];
+    residenceParagraph.innerHTML += currentItem;
+    
+}
+
+// for (let i=0; i < myData.length; i++) {
+//     let currentItem = myData.i[i];
+//     console.log(currentItem);
+// }
+
+// for (let key in myData) {
+//     for (let i=0; i < myData[key].length; i++) {
+//         let currentItem = myData[key][i];
+//         // console.log(currentItem);
+        
+//         let paragraph = document.createElement("p");
+//         paragraph.innerHTML = currentItem;
+//         container.appendChild(paragraph);
+//         // paragraph.appendChild(myText);
+//         // myWindow.innerHTML += myText;
+//         // myWindow.innerHTML += currentItem;
+        
+//         /*
+//         *   need to create DOM elements and attach
+//         * respective information to them before writing to 
+//         * DOM.
+//         */
+
+//     }
+    
+   
+// }
 
 

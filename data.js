@@ -28,7 +28,7 @@ const HomeInventoryDatabase = {};
 
 // Init all of the tables (i.e. arrays) that you want to use in DB
 
-HomeInventoryDatabase.collaborators = ["mario", "luigi"];
+HomeInventoryDatabase.collaborators = ["mario", "luigi", "donald ducks"];
 // filled (pushed) below with portraitInfo object
 HomeInventoryDatabase.portrait = [];
 HomeInventoryDatabase.aliases = ["Nic", "Nick", "Nicholas", "Bossman"];
