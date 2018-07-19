@@ -47,7 +47,6 @@ const portraitInfo = {
 
 // Add the data to the appropriate tables
 HomeInventoryDatabase.portrait.push(portraitInfo);
-HomeInventoryDatabase.furniture.push(writingDesk);
 
 
 
