@@ -53,8 +53,11 @@
           </footer>
      
           <!-- scripts with JS for main and data  -->
-          <script src="main.js"></script>  
+          
+          <!-- save the database to local storage before trying to load -->
           <script src="data.js"></script>
+          <!-- comes after data to ensure data has been saved to local storage first -->
+          <script src="main.js"></script>  
         </body>
 </html>
 
