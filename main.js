@@ -64,8 +64,15 @@ const myWindow = getContentWindow();
 for (let key in myData) {
     for (let i=0; i < myData[key].length; i++) {
         let currentItem = myData[key][i];
-        // console.log(currentItem.name);
-        myWindow.innerHTML += currentItem.name;
+        console.log(currentItem);
+        myWindow.innerHTML += currentItem;
+        
+        /*
+        *   need to create DOM elements and attach
+        * respective information to them before writing to 
+        * DOM.
+        */
+
     }
    
 }
